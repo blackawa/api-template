@@ -1,14 +1,14 @@
 # api
 
-A Leiningen template for FIXME.
+A Leiningen template for my own API project.
 
 ## Usage
 
-FIXME
+    lein new api new.project.name
 
 ## License
 
-Copyright © 2018 FIXME
+Copyright © 2018 blackawa
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
