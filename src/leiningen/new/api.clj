@@ -13,6 +13,7 @@
               :sanitized (name-to-path name)}]
     (main/info "Generating fresh 'lein new' api project.")
     (->files data
+             [".gitignore" (render ".gitignore" data)]
              ["README.md" (render "README.md" data)]
              ["dev/src/user.clj" (render "dev/user.clj" data)]
              ["docker-compose.yml" (render "docker-compose.yml" data)]

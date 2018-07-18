@@ -12,3 +12,9 @@
 
 (defn destroyed [body]
   {:status 200 :body body})
+
+(defn bad-request
+  ([body] {:status 400 :body body}))
+
+(defn not-found [body]
+  {:status 404 :body body})

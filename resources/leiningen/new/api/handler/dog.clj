@@ -1,11 +1,16 @@
 (ns {{name}}.handler.dog
   (:require [integrant.core :as ig]
             [{{name}}.boundary.dog :as dog]
-            [{{name}}.util.response :as response]))
+            [{{name}}.util.response :as response]
+            [{{name}}.validator.dog :as validator]))
 
 (defmethod ig/init-key ::create [_ {:keys [db]}]
   (fn [req]
-    (response/created (dog/create db (:params req)))))
+    (let [dog (:body-params req)
+          [errors _] (validator/validate-create dog)]
+      (if errors
+        (response/bad-request errors)
+        (response/created (dog/create db dog))))))
 
 (defmethod ig/init-key ::index [_ {:keys [db]}]
   (fn [req]
