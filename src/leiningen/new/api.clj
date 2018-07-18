@@ -27,5 +27,6 @@
              ["src/{{sanitized}}/handler/dog.clj" (render "handler/dog.clj" data)]
              ["src/{{sanitized}}/boundary/dog.clj" (render "boundary/dog.clj" data)]
              ["src/{{sanitized}}/util/response.clj" (render "util/response.clj" data)]
+             ["src/{{sanitized}}/validator/dog.clj" (render "validator/dog.clj" data)]
              ["src/{{sanitized}}/component.clj" (render "component.clj" data)]
              ["swagger.yaml" (render "swagger.yaml" data)])))
