@@ -9,7 +9,6 @@
 
 (defmethod ig/init-key ::http [_ {:keys [handler] :as opts}]
   (jetty/run-jetty handler (-> opts (dissoc :handler) (assoc :join? false))))
-
 (defmethod ig/halt-key! ::http [_ server]
   (.stop server))
 
@@ -23,12 +22,10 @@
 
 (defprotocol Logger
   (log [this level message data]))
-
 (defrecord TimbreLogger [config]
   Logger
   (log [this level message data]
     (timbre/log* config level message data)))
-
 (defmethod ig/init-key ::logger [_ options]
   (map->TimbreLogger
    {:config
